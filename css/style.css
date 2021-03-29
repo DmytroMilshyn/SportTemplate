@@ -94,8 +94,15 @@ img {
 .input {
     outline: none;
 }
+
 .wrapper {
     overflow: hidden;
+}
+
+.container {
+    max-width: 1220px;
+    padding: 0 15px;
+    margin: 0 auto;
 }
 
 .clearfix:after {
@@ -104,24 +111,17 @@ img {
     clear: both;
 }
 
-.header__item {
-    float: left;
-    width: 50%;
-}
-
 .header {
     position: absolute;
     top: 40px;
     max-width: 100%;
     width: 100%;
     background-color: #000;
-    padding-top: 12px;
-    padding-bottom: 7px;
 }
-.container {
-    max-width: 1160px;
-    padding: 0 15px;
-    margin: 0 auto;
+
+.header_flex {
+    display: flex;
+    justify-content: space-between;
 }
 
 .logo img {
@@ -129,30 +129,28 @@ img {
 }
 
 .logo {
+    padding-top: 14px;
     display: inline-block;
     line-height: 0px;
 }
 
-.flex-container-end {
-    display: -webkit-flex; /* Safari */
+.nav {
     display: flex;
-    -webkit-justify-content: flex-end; /* Safari */
     justify-content: flex-end;
-    margin-left: 100px;
+ 
 }
 
-.navigation__item {
+.nav-inner {
     text-align: center;
-    font-size: 14px;
-    width: 100%;
-    padding: 8px 10px;
+
 }
 
-.navigation__item:last-child {
-    margin-right: -35px;
+.nav-inner:last-child {
+    margin-right: -36px;
 }
 
-.navigation a {
+.nav-inner a {
+    padding: 18px 36px;
     color: #00c0ff;
     transition: .3;
     display: block;
@@ -165,33 +163,35 @@ img {
 .main-iner {
     background-image: url(../img/main.jpg);
     max-height: 100%;
-    background-position: 100% 50%; 
-    min-height: 540px;
+    background-position: 100% 0; 
+    background-size: cover;
     background-repeat: no-repeat;
     position: relative;
-    
+    display: flex;
+    align-items: center;
 }
 
-.main-iner2 {
-    text-align: center;
-    padding-top: 300px;
-    display: -webkit-flex; /* Safari */
+.section_first {
     display: flex;
-    -webkit-flex-direction: column; /* Safari */
     flex-direction: column;
+    text-align: center;
+    padding-top: 380px;
+
    }
 
 .text-1 {
-    padding: 55px 200px;
-    line-height: 24px;
+    padding: 50px 0;
+    text-align: center;
+    max-width: 800px;
+    line-height: 1.4;
     color: #fff;
-    font-size: 17px;
+    font-size: 20px;
    }
 
 .button-first {
-    font: 700 22px/1 'Roboto', Arial, tahoma, verdana, sans-serif;
+    font: 700 24px/1 'Roboto', Arial, tahoma, verdana, sans-serif;
     text-align: center;
-    padding: 50px 10px;
+    padding: 40px 10px;
    }
 
  .btn { 
@@ -214,14 +214,132 @@ img {
     color: #fff;
 }
 
+.mobile-button {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    display: none;
+}
+
+.mobile-button span {
+    display: block;
+    height: 4px;
+    width: 100%;
+    background: #00c0ff;
+    z-index: 5;
+    opacity: 1;
+    transition: .3s;
+}
+
+.mobile-button:before,
+.mobile-button:after {
+    content: "";
+    height: 4px;
+    width: 100%;
+    background: #00c0ff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: .3s;
+}
+
+.mobile-button:after {
+    top: auto;
+    bottom: 0;
+    transition: .3s;
+}
+
+.mobile-button.opened span {
+    opacity: 0;
+
+}
+
+.mobile-button.opened:before {
+    transform: rotate(45deg);
+    top: calc(50% - 2px);
+
+}
+
+.mobile-button.opened:after {
+    transform: rotate(-45deg);
+    bottom: calc(50% - 2px);
+}
+
+.section_2 {
+    background-color: #000;
+    max-height: 515px;
+    height: 100%;
+}
+
+.content {
+    text-align: center;
+    color: #00c0ff;
+    max-width: 880px;
+    padding: 165px 40px;
+}
+
+.content h4 {
+    font-size: 24px;
+}
+
+.content p {
+    padding-top: 48px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 2;
+}
+
+.section_3 {
+    background-color: #1b1b1b;
+    color: #fff;
+    min-height: 375px;
+    max-height: 100%;
+    height: 100%;
+}
+
+.block_3 {
+    display: flex;
+    flex-direction: row;
+    padding: 135px 120px;
+}
+
+.content_3 {
+    text-align: left;
+    font-size: 14px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.content_3:first-child {
+    padding-right: 100px;
+}
+.content_3:last-child {
+    padding-left: 100px;
+}
+
+.content_3 h4 {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.content_3 p {
+    padding-top: 35px;
+    line-height: 2;
+}
+
 @media (max-width: 1240px) {
-    .main-iner2 {
-        padding-top: 200px;
+    .section_first {
+        padding-top: 330px;
     }
 }
+
 @media (max-width: 1120px) {
-    .main-iner2 {
-        padding-top: 180px;
+    .section_first {
+        padding-top: 300px;
     }
     .text-1 {
         padding: 40px 100px;
@@ -229,60 +347,139 @@ img {
     .button-first {
         padding: 35px 10px;
        }
+    .content {
+    padding: 100px 40px;
+    }
+    .block_3 {
+        padding: 80px 55px;
+    }
 }
 
 @media (max-width: 980px) {
-    .main-iner2 {
-        padding-top: 170px; 
+    .section_first {
+        padding-top: 250px; 
     }
     .header {
         position: absolute;
-        top: 20px; 
+        top: 0; 
     }
     .text-1 {
         padding: 40px 100px;
     }
     .button-first {
-        padding: 25px 10px;
+        padding: 25px 10px 50px;
        }
+    .content_3:first-child {
+        padding-right: 60px;
+    }
+    .content_3:last-child {
+        padding-left: 60px;
+    }
+}
+
+@media (max-width: 980px) {
+    .block_3 {
+        padding: 60px 15px;
+    }
+    .content_3:first-child {
+        padding-right: 30px;
+    }
+    .content_3:last-child {
+        padding-left: 30px;
+    }
+
 }
 
  @media (max-width: 768px) {
-    .main-iner2 {
-        padding-top: 150px; 
-    }
-    .button-first {
-     padding: 20px 10px;
-    }
     .header {
         position: absolute;
-        top: 10px; 
+        top: 0; 
+    }
+    .nav-inner:last-child {
+        margin-right: -20px;
+    }
+    .nav-inner a {
+        padding: 18px 15px;
+    }
+    .section_first {
+        padding-top: 200px; 
+    }
+    .button-first {
+     padding: 20px 10px 50px;
     }
     .text-1 {
         padding: 35px 80px;
         font-size: 16px;
     }
-    .button-first {
- 
-        padding: 25px 10px;
-       }
+    .content {
+        padding: 80px 40px;
+        }
+    .block_3 {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 30px;
+        padding-top: 30px;
+    }
+    .content_3 {
+        text-align: center;
+        padding: 30px;
+    }
+    .content_3 p {
+        padding-top: 15px;
+    }
+
+
 }
 
+@media (max-width: 620px) {
+    .mobile-button {
+        display: inline-flex;
+    }
+    .header-flex .container {
+        padding: 0 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        padding-top: 7px;
+    }
+    .navigation {
+        padding-top: 5px;
+    }
+    .nav {
+        display: flex;
+        flex-direction: column;
+        display: none;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        padding: 20px 15px 0;
+        text-align: center;
+        background: #000;
+        z-index: 20;
+    }
+    .nav a {
+        padding: 8px 0;
+    }
+    .text-1 {
+    font-size: 18px;
+   }
+   .block_3 {
+    padding-top: 30px;
+    }
+}
 
 @media (max-width: 520px) {
-    .header {
-        position: absolute;
-        top: 0; 
-    }
-    .main-iner2 {
-        padding-top: 120px; 
+    .section_first {
+        padding-top: 200px; 
     }
     .text-1 {
         padding: 25px 50px;
         font-size: 14px;
     }
     .button-first {
-        padding: 25px 10px;
+        padding: 20px 10px 50px;
         font-size: 18px;
     }
     .btn { 
@@ -290,17 +487,28 @@ img {
         height: 40px;
         padding-top: 10px;
     }
-
+    .content {
+        padding: 60px 40px;
+        }
+    .content h4 {
+        font-size: 20px;
+    }
+    .content p {
+        padding-top: 30px;
+        line-height: 1.5;
+        font-size: 14px;
+    }
+    .content_3 p {
+        line-height: 1.5;
+        font-size: 14px;
+    }
 }
+
 @media (max-width: 380px) {
     .text-1 {
         padding: 20px 20px; 
     }
     .button-first {
-        padding: 20px 10px;
-       }
-}
-
-@media (max-width: 320px) {
-
+        padding: 20px 10px 50px;
+    }
 }
